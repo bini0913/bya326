@@ -16,40 +16,79 @@ export type Database = {
     Tables: {
       admissions: {
         Row: {
+          assigned_to: string | null
           created_at: string
+          current_school: string | null
+          decision_at: string | null
           email: string
+          gender: string | null
           grade: string
           id: string
+          interview_at: string | null
+          interview_notes: string | null
+          languages_spoken: string | null
           message: string | null
+          nationality: string | null
           notes: string | null
           parent_name: string
           phone: string
+          preferred_start_date: string | null
+          prior_curriculum: string | null
           ref_id: string
           status: Database["public"]["Enums"]["admission_status"]
+          student_dob: string | null
+          student_name: string | null
+          updated_at: string
         }
         Insert: {
+          assigned_to?: string | null
           created_at?: string
+          current_school?: string | null
+          decision_at?: string | null
           email: string
+          gender?: string | null
           grade: string
           id?: string
+          interview_at?: string | null
+          interview_notes?: string | null
+          languages_spoken?: string | null
           message?: string | null
+          nationality?: string | null
           notes?: string | null
           parent_name: string
           phone: string
+          preferred_start_date?: string | null
+          prior_curriculum?: string | null
           ref_id: string
           status?: Database["public"]["Enums"]["admission_status"]
+          student_dob?: string | null
+          student_name?: string | null
+          updated_at?: string
         }
         Update: {
+          assigned_to?: string | null
           created_at?: string
+          current_school?: string | null
+          decision_at?: string | null
           email?: string
+          gender?: string | null
           grade?: string
           id?: string
+          interview_at?: string | null
+          interview_notes?: string | null
+          languages_spoken?: string | null
           message?: string | null
+          nationality?: string | null
           notes?: string | null
           parent_name?: string
           phone?: string
+          preferred_start_date?: string | null
+          prior_curriculum?: string | null
           ref_id?: string
           status?: Database["public"]["Enums"]["admission_status"]
+          student_dob?: string | null
+          student_name?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
@@ -188,6 +227,13 @@ export type Database = {
         | "accepted"
         | "waitlisted"
         | "rejected"
+        | "application_submitted"
+        | "documents_received"
+        | "interview_scheduled"
+        | "interview_completed"
+        | "offer_sent"
+        | "enrolled"
+        | "withdrawn"
       app_role: "admin" | "editor"
     }
     CompositeTypes: {
@@ -322,6 +368,13 @@ export const Constants = {
         "accepted",
         "waitlisted",
         "rejected",
+        "application_submitted",
+        "documents_received",
+        "interview_scheduled",
+        "interview_completed",
+        "offer_sent",
+        "enrolled",
+        "withdrawn",
       ],
       app_role: ["admin", "editor"],
     },
