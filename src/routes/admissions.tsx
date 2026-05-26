@@ -9,17 +9,17 @@ export const Route = createFileRoute("/admissions")({
   head: () => ({
     meta: [
       { title: "Admissions — Boriyad Youth Academy" },
-      { name: "description", content: "Apply to Boriyad Youth Academy. Learn about our admissions process for KG through Grade 12." },
+      { name: "description", content: "Apply to Boriyad Youth Academy. International curriculum admissions for KG through Grade 12." },
     ],
   }),
   component: AdmissionsPage,
 });
 
 const steps = [
-  { title: "Inquiry", desc: "Submit the online form or visit our admissions office." },
+  { title: "Inquiry", desc: "Submit the online application with your child's details." },
   { title: "Campus Visit", desc: "Tour facilities and meet with our academic team." },
-  { title: "Assessment", desc: "Age-appropriate entrance evaluation and interview." },
-  { title: "Enrollment", desc: "Receive offer, complete registration, and join BYA." },
+  { title: "Assessment & Interview", desc: "Age-appropriate evaluation and family interview." },
+  { title: "Offer & Enrollment", desc: "Receive offer, complete registration, and join BYA." },
 ];
 
 function genRef() {
@@ -37,18 +37,32 @@ function AdmissionsPage() {
     setError(null);
     setSubmitting(true);
     const fd = new FormData(e.currentTarget);
+    const get = (k: string) => String(fd.get(k) ?? "").trim();
+    const opt = (k: string) => {
+      const v = get(k);
+      return v.length ? v : null;
+    };
     const ref = genRef();
     const { error: insErr } = await supabase.from("admissions").insert({
       ref_id: ref,
-      parent_name: String(fd.get("name") ?? "").trim(),
-      email: String(fd.get("email") ?? "").trim(),
-      phone: String(fd.get("phone") ?? "").trim(),
-      grade: String(fd.get("grade") ?? "").trim(),
-      message: (String(fd.get("message") ?? "").trim() || null),
+      parent_name: get("name"),
+      email: get("email"),
+      phone: get("phone"),
+      grade: get("grade"),
+      message: opt("message"),
+      student_name: opt("student_name"),
+      student_dob: opt("student_dob"),
+      gender: opt("gender"),
+      nationality: opt("nationality"),
+      current_school: opt("current_school"),
+      prior_curriculum: opt("prior_curriculum"),
+      languages_spoken: opt("languages_spoken"),
+      preferred_start_date: opt("preferred_start_date"),
+      status: "application_submitted",
     });
     setSubmitting(false);
     if (insErr) {
-      setError("Sorry, your inquiry could not be submitted. Please try again or contact us directly.");
+      setError("Sorry, your application could not be submitted. Please try again or contact us directly.");
       return;
     }
     setRefId(ref);
@@ -61,7 +75,7 @@ function AdmissionsPage() {
       <PageHero
         eyebrow="Admissions"
         title="Join the BYA Community"
-        description="We welcome families who share our commitment to excellence. Limited places for 2025–2026."
+        description="We welcome families from every background who share our commitment to academic excellence and global citizenship. Now accepting applications for 2026–2027."
       />
 
       <section className="py-20 md:py-28">
@@ -70,7 +84,7 @@ function AdmissionsPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">Process</p>
             <h2 className="mt-3 font-display text-4xl font-medium text-navy-900 md:text-5xl">How to Apply</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Four simple steps from inquiry to enrollment.
+              Four simple steps from application to enrollment.
             </p>
             <div className="section-divider mt-6" />
           </div>
@@ -90,52 +104,84 @@ function AdmissionsPage() {
       <section className="bg-cream py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">Inquiry Form</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">Application Form</p>
             <h2 className="mt-3 font-display text-4xl font-medium text-navy-900 md:text-5xl">Start Your Application</h2>
             <p className="mt-4 text-muted-foreground">
-              Complete the form and our admissions team will be in touch within 2 business days.
+              Tell us about your child. Our admissions team will respond within 2 business days.
             </p>
           </div>
 
           {submitted ? (
             <div className="mt-12 rounded-sm border border-gold-500/40 bg-white p-10 text-center">
               <CheckCircle2 className="mx-auto h-12 w-12 text-gold-600" />
-              <h3 className="mt-4 font-display text-2xl font-semibold text-navy-900">Thank you!</h3>
+              <h3 className="mt-4 font-display text-2xl font-semibold text-navy-900">Application received</h3>
               <p className="mt-3 text-muted-foreground">
-                Your inquiry has been received. Our admissions team will contact you within 2 business days.
+                Thank you. Our admissions team will contact you within 2 business days to schedule next steps.
               </p>
               <p className="mt-4 text-sm text-muted-foreground">Reference ID</p>
               <p className="font-mono text-lg font-semibold text-navy-900">{refId}</p>
+              <p className="mt-2 text-xs text-muted-foreground">Please save this for your records.</p>
               <button
                 onClick={() => setSubmitted(false)}
                 className="mt-6 inline-flex items-center gap-2 rounded-sm border border-navy-900/20 px-5 py-2.5 text-sm font-semibold text-navy-900 hover:bg-navy-900 hover:text-white"
               >
-                Submit another inquiry
+                Submit another application
               </button>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="mt-12 grid gap-5 rounded-sm border border-navy-900/10 bg-white p-8">
-              <Field label="Parent / Guardian Name" name="name" required />
-              <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Email" name="email" type="email" required />
-                <Field label="Phone" name="phone" type="tel" required />
-              </div>
-              <Field label="Grade of Interest" name="grade" placeholder="e.g. Grade 5" required />
-              <div>
-                <label className="text-sm font-semibold text-navy-900">Message (optional)</label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  className="mt-2 block w-full rounded-sm border border-navy-900/15 bg-cream px-4 py-3 text-sm text-navy-900 placeholder:text-muted-foreground focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
-                />
-              </div>
+            <form onSubmit={onSubmit} className="mt-12 grid gap-8 rounded-sm border border-navy-900/10 bg-white p-8">
+              <Section title="Parent / Guardian">
+                <Field label="Full Name" name="name" required />
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <Field label="Email" name="email" type="email" required />
+                  <Field label="Phone" name="phone" type="tel" required />
+                </div>
+              </Section>
+
+              <Section title="Student">
+                <Field label="Student Full Name" name="student_name" />
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <Field label="Date of Birth" name="student_dob" type="date" />
+                  <SelectField label="Gender" name="gender" options={["", "Female", "Male", "Other", "Prefer not to say"]} />
+                </div>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <Field label="Nationality" name="nationality" placeholder="e.g. Ethiopian" />
+                  <Field label="Languages Spoken" name="languages_spoken" placeholder="e.g. Amharic, English" />
+                </div>
+              </Section>
+
+              <Section title="Academic">
+                <Field label="Grade of Interest" name="grade" placeholder="e.g. Grade 5" required />
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <Field label="Preferred Start Date" name="preferred_start_date" type="date" />
+                  <SelectField
+                    label="Prior Curriculum"
+                    name="prior_curriculum"
+                    options={["", "Ethiopian National", "Cambridge / IGCSE", "IB", "American", "British", "French", "Other"]}
+                  />
+                </div>
+                <Field label="Current / Previous School" name="current_school" />
+              </Section>
+
+              <Section title="Additional Information">
+                <div>
+                  <label className="text-sm font-semibold text-navy-900">Message (optional)</label>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    placeholder="Anything else our team should know (learning needs, sibling enrollment, scholarship interest, etc.)"
+                    className="mt-2 block w-full rounded-sm border border-navy-900/15 bg-cream px-4 py-3 text-sm text-navy-900 placeholder:text-muted-foreground focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
+                  />
+                </div>
+              </Section>
+
               {error && <p className="rounded-sm bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
               <button
                 type="submit"
                 disabled={submitting}
-                className="group mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-navy-900 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-navy-800 disabled:opacity-60"
+                className="group inline-flex items-center justify-center gap-2 rounded-sm bg-navy-900 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-navy-800 disabled:opacity-60"
               >
-                {submitting ? "Submitting…" : "Submit Inquiry"}
+                {submitting ? "Submitting…" : "Submit Application"}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
             </form>
@@ -143,6 +189,15 @@ function AdmissionsPage() {
         </div>
       </section>
     </MarketingShell>
+  );
+}
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="grid gap-5">
+      <p className="border-b border-navy-900/10 pb-2 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">{title}</p>
+      {children}
+    </div>
   );
 }
 
@@ -160,6 +215,22 @@ function Field({ label, name, type = "text", required, placeholder }: { label: s
         placeholder={placeholder}
         className="mt-2 block w-full rounded-sm border border-navy-900/15 bg-cream px-4 py-3 text-sm text-navy-900 placeholder:text-muted-foreground focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
       />
+    </div>
+  );
+}
+
+function SelectField({ label, name, options }: { label: string; name: string; options: string[] }) {
+  return (
+    <div>
+      <label htmlFor={name} className="text-sm font-semibold text-navy-900">{label}</label>
+      <select
+        id={name}
+        name={name}
+        defaultValue=""
+        className="mt-2 block w-full rounded-sm border border-navy-900/15 bg-cream px-4 py-3 text-sm text-navy-900 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
+      >
+        {options.map((o) => <option key={o} value={o}>{o || "— Select —"}</option>)}
+      </select>
     </div>
   );
 }
