@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { MarketingShell } from "@/components/marketing-shell";
 import { PageHero } from "@/components/page-hero";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admissions")({
   head: () => ({
@@ -21,13 +22,36 @@ const steps = [
   { title: "Enrollment", desc: "Receive offer, complete registration, and join BYA." },
 ];
 
+function genRef() {
+  return "BYA-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+}
+
 function AdmissionsPage() {
   const [submitted, setSubmitted] = useState(false);
   const [refId, setRefId] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setRefId("BYA-" + Math.random().toString(36).slice(2, 8).toUpperCase());
+    setError(null);
+    setSubmitting(true);
+    const fd = new FormData(e.currentTarget);
+    const ref = genRef();
+    const { error: insErr } = await supabase.from("admissions").insert({
+      ref_id: ref,
+      parent_name: String(fd.get("name") ?? "").trim(),
+      email: String(fd.get("email") ?? "").trim(),
+      phone: String(fd.get("phone") ?? "").trim(),
+      grade: String(fd.get("grade") ?? "").trim(),
+      message: (String(fd.get("message") ?? "").trim() || null),
+    });
+    setSubmitting(false);
+    if (insErr) {
+      setError("Sorry, your inquiry could not be submitted. Please try again or contact us directly.");
+      return;
+    }
+    setRefId(ref);
     setSubmitted(true);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   };
