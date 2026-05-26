@@ -65,9 +65,9 @@ function Hero() {
           className="lg:col-span-7"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-500">
-            Excellence &amp; Integrity
+            An Institution of Excellence &amp; Integrity
           </p>
-          <h1 className="mt-6 font-display text-5xl font-medium uppercase leading-[1.02] text-white md:text-6xl lg:text-7xl xl:text-[5.5rem]">
+          <h1 className="mt-6 font-display text-5xl font-medium leading-[1.02] text-white md:text-6xl lg:text-7xl xl:text-[5.5rem]">
             Shaping Ethiopia's
             <br />
             <span className="gold-gradient-text">Next Generation</span>
@@ -77,10 +77,11 @@ function Hero() {
           <div className="mt-5 h-[3px] w-40 bg-gradient-to-r from-gold-500 to-transparent" />
 
           <p className="mt-7 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
-            Boriyad Youth Academy provides world-class education from Kindergarten
-            to Grade 12, inspiring young minds to excel academically, lead
-            confidently, and impact the world.
+            From Kindergarten through Grade 12, Boriyad Youth Academy cultivates
+            scholars of intellect and character — prepared to lead with
+            conviction, serve with purpose, and shape the world they inherit.
           </p>
+
 
           <div className="mt-9 flex flex-wrap items-center gap-3 md:gap-4">
             <Link
@@ -254,13 +255,15 @@ function AboutPreview() {
         <Reveal>
           <SectionLabel>About Boriyad</SectionLabel>
           <h2 className="mt-5 font-display text-4xl font-medium text-navy-900 md:text-5xl">
-            More Than a School, A Family
+            An Institution Built on Purpose
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-navy-900/70">
-            We nurture character, talent, and intellect to build a brighter
-            future for Ethiopia. From our youngest learners to graduating
-            seniors, every student is known, challenged, and championed.
+            Boriyad is more than a school — it is a community of scholars,
+            mentors, and families committed to forming young people of
+            substance. Every student is known by name, challenged by
+            expectation, and championed in pursuit of their best work.
           </p>
+
           <Link
             to="/about"
             className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-navy-900 transition-colors hover:text-gold-600"
@@ -288,8 +291,9 @@ function ProgramsPreview() {
           <Reveal>
             <SectionLabel>Our Programs</SectionLabel>
             <h2 className="mt-5 font-display text-4xl font-medium text-navy-900 md:text-5xl">
-              Programs for Every Stage
+              A Continuum of Academic Excellence
             </h2>
+
           </Reveal>
         </div>
 
@@ -339,8 +343,9 @@ function AchievementsPreview() {
               <span className="ml-3 inline-block h-px w-8 align-middle bg-gold-500" />
             </p>
             <h2 className="mt-5 font-display text-4xl font-medium md:text-5xl">
-              A Tradition of Excellence
+              A Tradition of Distinction
             </h2>
+
           </Reveal>
         </div>
 
@@ -473,9 +478,10 @@ function NewsPreview() {
           <div>
             <SectionLabel>News &amp; Events</SectionLabel>
             <h2 className="mt-4 font-display text-4xl font-medium text-navy-900 md:text-5xl">
-              Latest from BYA
+              Dispatches from Campus
             </h2>
           </div>
+
           <Link to="/news" className="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:text-gold-600">
             All News <ArrowRight className="h-4 w-4" />
           </Link>
@@ -525,12 +531,14 @@ function AdmissionsCTA() {
             Admissions Open · 2025–2026
           </p>
           <h2 className="mt-5 font-display text-4xl font-medium leading-tight md:text-6xl">
-            Give Your Child the Education They Deserve
+            An Education Worthy of Their Ambition
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base text-white/80 md:text-lg">
-            Limited places available. Schedule a campus visit or begin your
-            application today.
+            Admission to Boriyad is selective and intentional. Begin a
+            conversation with our admissions office, or schedule a private
+            campus visit.
           </p>
+
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link to="/admissions" className="group inline-flex items-center gap-3 rounded-sm bg-gold-500 px-7 py-4 text-sm font-semibold text-navy-950 transition-all hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(224,184,74,0.55)]">
               Apply Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
