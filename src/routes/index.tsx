@@ -282,9 +282,9 @@ function AboutPreview() {
 
 /* ============================== PROGRAMS ============================== */
 const PROGRAMS = [
-  { title: "Elementary", grades: "KG – Grade 6", img: earlyYearsImg, desc: "Curiosity, literacy, and confidence in a nurturing foundation." },
-  { title: "Secondary", grades: "Grade 7 – 10", img: academicsImg, desc: "Critical thinking, STEM, and leadership through project learning." },
-  { title: "Preparatory", grades: "Grade 11 – 12", img: graduationImg, desc: "University preparation, national exams, and global pathways." },
+  { title: "Elementary", grades: "KG – Grade 6", img: studentsYoung, desc: "Curiosity, literacy, and confidence in a nurturing foundation." },
+  { title: "Secondary", grades: "Grade 7 – 10", img: studentsGroup, desc: "Critical thinking, STEM, and leadership through project learning." },
+  { title: "Preparatory", grades: "Grade 11 – 12", img: graduationClass, desc: "University preparation, national exams, and global pathways." },
 ];
 
 function ProgramsPreview() {
@@ -378,62 +378,14 @@ function AchievementsPreview() {
   );
 }
 
-/* ============================== LEADERSHIP ============================== */
-function LeadershipPreview() {
-  return (
-    <section className="bg-cream py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-8">
-        <Reveal>
-          <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-sm border border-navy-900/10 shadow-[0_30px_80px_-40px_rgba(8,27,51,0.45)]">
-              <img src={managerPhoto} alt="Mrs. Jalanne Tadesse, General Manager" className="block h-full w-full object-cover" loading="lazy" />
-            </div>
-            <div className="mt-4 flex items-center gap-3">
-              <span className="h-px w-10 bg-gold-600" />
-              <p className="text-xs uppercase tracking-[0.3em] text-navy-900/60">
-                Office of the General Manager
-              </p>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.15}>
-          <div className="lg:col-span-7">
-            <SectionLabel>Leadership Message</SectionLabel>
-            <h2 className="mt-5 font-display text-4xl font-medium text-navy-900 md:text-5xl">
-              A Welcome From Our Leadership
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-navy-900/75 md:text-lg">
-              "At Boriyad Youth Academy, education extends far beyond the
-              classroom. Our mission is to nurture disciplined, confident, and
-              capable young people prepared to lead Ethiopia and inspire the
-              world."
-            </p>
-            <div className="mt-8">
-              <p className="font-display text-2xl italic text-navy-900">Jalanne Tadesse</p>
-              <p className="mt-1 text-sm text-navy-900/60">
-                Mrs. Jalanne Tadesse · General Manager
-              </p>
-            </div>
-            <Link
-              to="/about"
-              className="mt-8 inline-flex items-center gap-2 rounded-sm border border-navy-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-navy-900 transition-all hover:bg-navy-900 hover:text-cream"
-            >
-              Read Full Message <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
+/* Leadership message lives on the About page only. */
 
 /* ============================== STUDENT LIFE ============================== */
 const LIFE = [
   { icon: Music, title: "Arts & Culture", img: studentLifeImg },
-  { icon: Trophy, title: "Sports", img: academicsImg },
-  { icon: Calendar, title: "Events", img: graduationImg },
-  { icon: Heart, title: "Trips", img: earlyYearsImg },
+  { icon: Trophy, title: "Assembly", img: morningAssembly },
+  { icon: Calendar, title: "Graduation", img: graduationClass },
+  { icon: Heart, title: "Community", img: studentsYoung },
 ];
 
 function StudentLifePreview() {
@@ -469,9 +421,9 @@ function StudentLifePreview() {
 
 /* ============================== NEWS ============================== */
 const NEWS = [
-  { title: "BYA Students Sweep National Science Fair", excerpt: "Three gold medals and two special awards at the 2025 National Science Olympiad.", date: "2025-03-12", category: "Achievement", img: graduationImg },
-  { title: "New Cambridge Assessment Partnership", excerpt: "Expanded IGCSE pathways and examiner training for our faculty.", date: "2025-02-28", category: "Academics", img: academicsImg },
-  { title: "Spring Open Day — Register Now", excerpt: "Tour our campus, meet faculty, and experience a day at BYA.", date: "2025-04-05", category: "Admissions", img: studentLifeImg },
+  { title: "100% Pass Rate on Regional Grade 6 Exam", excerpt: "Our 2024/2025 cohort achieved a perfect pass rate with outstanding individual scores.", date: "2025-03-12", category: "Achievement", img: examResults },
+  { title: "Class of 2024 Graduates with Honors", excerpt: "Celebrating another distinguished graduating class moving on to preparatory and beyond.", date: "2025-02-28", category: "Academics", img: graduationClass },
+  { title: "Spring Open Day — Register Now", excerpt: "Tour our campus, meet faculty, and experience a day at BYA.", date: "2025-04-05", category: "Admissions", img: morningAssembly },
 ];
 
 function NewsPreview() {
@@ -565,7 +517,6 @@ function HomePage() {
       <AboutPreview />
       <ProgramsPreview />
       <AchievementsPreview />
-      <LeadershipPreview />
       <StudentLifePreview />
       <NewsPreview />
       <AdmissionsCTA />
