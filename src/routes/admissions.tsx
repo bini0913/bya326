@@ -129,11 +129,13 @@ function AdmissionsPage() {
                   className="mt-2 block w-full rounded-sm border border-navy-900/15 bg-cream px-4 py-3 text-sm text-navy-900 placeholder:text-muted-foreground focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
                 />
               </div>
+              {error && <p className="rounded-sm bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
               <button
                 type="submit"
-                className="group mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-navy-900 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-navy-800"
+                disabled={submitting}
+                className="group mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-navy-900 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-navy-800 disabled:opacity-60"
               >
-                Submit Inquiry
+                {submitting ? "Submitting…" : "Submit Inquiry"}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
             </form>
