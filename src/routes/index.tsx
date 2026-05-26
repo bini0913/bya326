@@ -11,8 +11,6 @@ import heroBg from "@/assets/hero-campus.jpg";
 import heroStudent from "@/assets/hero-student.png";
 import academicsImg from "@/assets/academics.jpg";
 import studentLifeImg from "@/assets/student-life.jpg";
-import earlyYearsImg from "@/assets/early-years.jpg";
-import graduationImg from "@/assets/graduation.jpg";
 import graduationClass from "@/assets/graduation-class.jpg";
 import studentsGroup from "@/assets/students-group.jpg";
 import studentsYoung from "@/assets/students-young.jpg";
