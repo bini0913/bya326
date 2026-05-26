@@ -29,7 +29,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* BYA brand palette — sampled from the school crest */
+  /* BYA brand palette — Teal + Navy + Gold + Forest Green */
   --color-navy-950: #04222a;
   --color-navy-900: #0a3a44;
   --color-navy-800: #115560;
@@ -40,14 +40,18 @@
   --color-gold-600: #c79a3a;
   --color-gold-500: #e0b84a;
   --color-gold-400: #f1d27a;
-  --color-cream: #fbf8ee;
-  --color-ivory: #fbf8ee;
+  --color-forest-700: #1f4030;
+  --color-forest-600: #2d5a3d;
+  --color-forest-500: #3f7553;
+  --color-cream: #f7f4ed;
+  --color-ivory: #f7f4ed;
   --color-teal-accent: #1b7a7a;
   --color-purple-accent: #8b7ab8;
 
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Fira Sans", "Inter", system-ui, sans-serif;
+  --font-display: "DM Serif Display", "Cormorant Garamond", Georgia, serif;
 }
+
 
 :root {
   --radius: 0.5rem;
