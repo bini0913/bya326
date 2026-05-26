@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { MarketingShell } from "@/components/marketing-shell";
 import { PageHero } from "@/components/page-hero";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -12,25 +14,27 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
 });
 
-const items = [
-  "Graduation Ceremony", "Science Laboratory", "Sports Day",
-  "Cultural Festival", "Library & Learning Commons", "Early Years Classroom",
-  "Debate Championship", "Art Exhibition", "Campus Aerial View",
-];
-
-const gradients = [
-  "from-navy-800 to-navy-900",
-  "from-navy-900 to-teal-accent",
-  "from-gold-600 to-gold-700",
-  "from-navy-700 to-navy-950",
-  "from-teal-accent to-navy-800",
-  "from-gold-500 to-navy-900",
-  "from-navy-900 to-purple-accent",
-  "from-purple-accent to-navy-900",
-  "from-navy-800 to-gold-700",
-];
+interface Img { id: string; url: string; caption: string | null }
 
 function GalleryPage() {
+  const [items, setItems] = useState<Img[] | null>(null);
+
+  useEffect(() => {
+    void (async () => {
+      const { data } = await supabase
+        .from("gallery_images")
+        .select("id, storage_path, caption")
+        .order("sort_order", { ascending: true })
+        .order("created_at", { ascending: false });
+      const mapped = (data ?? []).map((r) => ({
+        id: r.id,
+        caption: r.caption,
+        url: supabase.storage.from("gallery").getPublicUrl(r.storage_path).data.publicUrl,
+      })) as Img[];
+      setItems(mapped);
+    })();
+  }, []);
+
   return (
     <MarketingShell>
       <PageHero
@@ -40,22 +44,24 @@ function GalleryPage() {
       />
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((label, i) => (
-              <div
-                key={label}
-                className={`group relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br ${gradients[i]}`}
-              >
-                <div className="absolute inset-0 flex items-end p-6 transition-all">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-gold-400">Photo {i + 1}</p>
-                    <p className="mt-1 font-display text-2xl font-semibold text-white">{label}</p>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-navy-900/0 transition-colors group-hover:bg-navy-900/30" />
-              </div>
-            ))}
-          </div>
+          {items === null ? (
+            <p className="text-center text-sm text-muted-foreground">Loading…</p>
+          ) : items.length === 0 ? (
+            <p className="text-center text-muted-foreground">Photos coming soon.</p>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {items.map((img) => (
+                <figure key={img.id} className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-navy-900">
+                  <img src={img.url} alt={img.caption ?? ""} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  {img.caption && (
+                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-900/80 to-transparent p-4">
+                      <p className="font-display text-lg font-semibold text-white">{img.caption}</p>
+                    </figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </MarketingShell>
