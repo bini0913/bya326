@@ -387,3 +387,26 @@ function SelectField({ label, name, options }: { label: string; name: string; op
     </div>
   );
 }
+
+function FeeNote({ title, body }: { title: string; body: string }) {
+  return (
+    <div className="rounded-sm border border-navy-900/10 bg-white p-5">
+      <p className="text-[11px] font-semibold uppercase tracking-widest text-gold-600">{title}</p>
+      <p className="mt-2 text-sm leading-relaxed text-navy-900/75">{body}</p>
+    </div>
+  );
+}
+
+function TourLine({ icon: Icon, title, body }: { icon: React.ComponentType<{ className?: string }>; title: string; body: string }) {
+  return (
+    <div className="flex items-start gap-4 rounded-sm border border-white/10 bg-white/[0.04] p-5">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-gold-500/40 text-gold-500">
+        <Icon className="h-5 w-5" />
+      </span>
+      <div>
+        <p className="text-[11px] font-semibold uppercase tracking-widest text-gold-500">{title}</p>
+        <p className="mt-1 text-sm text-white/85">{body}</p>
+      </div>
+    </div>
+  );
+}
