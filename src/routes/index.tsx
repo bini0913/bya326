@@ -648,6 +648,8 @@ function HomePage() {
   return (
     <MarketingShell>
       <Hero />
+      <WelcomeStory />
+      <WhatMakesUsDifferent />
       <AboutPreview />
       <ProgramsPreview />
       <AchievementsPreview />
