@@ -5,6 +5,7 @@ import {
   ArrowRight, Play, GraduationCap, Lightbulb, Globe2,
   Users, BookOpen, Award, Building2, TrendingUp,
   Music, Trophy, Sparkles, Heart, Calendar,
+  ShieldCheck, HandHeart, Compass, Quote,
 } from "lucide-react";
 import { MarketingShell } from "@/components/marketing-shell";
 import heroBg from "@/assets/hero-campus.jpg";
@@ -249,7 +250,142 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
-/* ============================== ABOUT ============================== */
+/* ============================== WELCOME / STORY ============================== */
+function WelcomeStory() {
+  return (
+    <section className="bg-cream py-20 md:py-28">
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
+        <Reveal>
+          <div className="relative lg:col-span-5">
+            <div className="relative overflow-hidden rounded-sm">
+              <img
+                src={morningAssembly}
+                alt="Boriyad Youth Academy campus and students"
+                className="aspect-[4/5] w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-navy-950/40 via-transparent to-transparent" />
+            </div>
+            <div className="absolute -bottom-6 -right-4 hidden max-w-[260px] rounded-sm border border-gold-500/30 bg-white p-5 shadow-xl md:block">
+              <Quote className="h-6 w-6 text-gold-600" />
+              <p className="mt-2 font-display text-sm italic leading-relaxed text-navy-900">
+                "Every child who walks through our gates is known, challenged,
+                and championed."
+              </p>
+              <p className="mt-3 text-[11px] font-semibold uppercase tracking-widest text-navy-900/60">
+                Principal's Welcome
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="lg:col-span-7">
+          <Reveal>
+            <SectionLabel>A Word From Our Principal</SectionLabel>
+            <h2 className="mt-5 font-display text-4xl font-medium leading-[1.1] text-navy-900 md:text-5xl">
+              Welcome to Boriyad — a community of scholars, mentors, and families.
+            </h2>
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-navy-900/75">
+              <p>
+                It is with great pride that I welcome you to Boriyad Youth Academy.
+                We are a thriving learning community spanning Kindergarten through
+                Grade 12, supported by passionate educators and engaged families
+                who believe deeply in the promise of the next generation.
+              </p>
+              <p>
+                At Boriyad, we hold high expectations for every learner — not only
+                in academics, but in character, curiosity, and contribution. Our
+                graduates leave us prepared to lead with conviction, to serve
+                with purpose, and to engage the world with both Ethiopian roots
+                and a global outlook.
+              </p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-3 gap-4 border-t border-navy-900/10 pt-6">
+              <Stat label="Students" value="1,300+" />
+              <Stat label="Educators" value="100+" />
+              <Stat label="Years" value="10+" />
+            </div>
+
+            <Link
+              to="/about"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-navy-900 transition-colors hover:text-gold-600"
+            >
+              Read the full welcome <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="font-display text-2xl font-medium text-gold-600 md:text-3xl">{value}</p>
+      <p className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-navy-900/60">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+/* ============================== DIFFERENTIATORS ============================== */
+const PILLARS = [
+  {
+    icon: ShieldCheck,
+    title: "Excellence with Integrity",
+    desc: "A rigorous academic program rooted in honesty, responsibility, and respect — preparing scholars who can be trusted with the future.",
+  },
+  {
+    icon: HandHeart,
+    title: "Every Child, Known by Name",
+    desc: "Small class culture, attentive mentorship, and a dedicated learning-support team so every student is seen, supported, and stretched.",
+  },
+  {
+    icon: Compass,
+    title: "Ethiopian Roots, Global Outlook",
+    desc: "A curriculum that honors our heritage while opening doors to the world's leading universities and opportunities.",
+  },
+];
+
+function WhatMakesUsDifferent() {
+  return (
+    <section className="bg-white py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <Reveal>
+            <SectionLabel>What Makes Us Different</SectionLabel>
+            <h2 className="mt-5 font-display text-4xl font-medium text-navy-900 md:text-5xl">
+              Our Promise to Every Family
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-navy-900/70">
+              Three commitments shape the daily life of our school — and the
+              outcomes our students carry with them long after graduation.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {PILLARS.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.1}>
+              <div className="group h-full rounded-sm border border-navy-900/10 bg-cream/40 p-8 transition-all hover:-translate-y-1 hover:border-gold-500/50 hover:bg-white hover:shadow-[0_25px_50px_-20px_rgba(8,27,51,0.25)]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-sm border border-gold-500/40 bg-white text-gold-600">
+                  <p.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-6 font-display text-2xl font-semibold text-navy-900">{p.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-navy-900/70">{p.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================== ABOUT (kept compact) ============================== */
 function AboutPreview() {
   return (
     <section className="bg-cream py-20 md:py-28">
@@ -512,6 +648,8 @@ function HomePage() {
   return (
     <MarketingShell>
       <Hero />
+      <WelcomeStory />
+      <WhatMakesUsDifferent />
       <AboutPreview />
       <ProgramsPreview />
       <AchievementsPreview />
