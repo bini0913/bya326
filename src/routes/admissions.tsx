@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldCheck, HandHeart, Users, Phone, Mail, Clock, Calendar as CalendarIcon } from "lucide-react";
 import { MarketingShell } from "@/components/marketing-shell";
 import { PageHero } from "@/components/page-hero";
 import { supabase } from "@/integrations/supabase/client";
@@ -9,7 +9,9 @@ export const Route = createFileRoute("/admissions")({
   head: () => ({
     meta: [
       { title: "Admissions — Boriyad Youth Academy" },
-      { name: "description", content: "Apply to Boriyad Youth Academy. International curriculum admissions for KG through Grade 12." },
+      { name: "description", content: "Apply to Boriyad Youth Academy. Fair, inclusive, transparent admissions for KG through Grade 12 — 2026/2027 intake now open." },
+      { property: "og:title", content: "Admissions — Boriyad Youth Academy" },
+      { property: "og:description", content: "Fair, inclusive, transparent admissions for KG–Grade 12. Apply or arrange a campus tour." },
     ],
   }),
   component: AdmissionsPage,
@@ -20,6 +22,32 @@ const steps = [
   { title: "Campus Visit", desc: "Tour facilities and meet with our academic team." },
   { title: "Assessment & Interview", desc: "Age-appropriate evaluation and family interview." },
   { title: "Offer & Enrollment", desc: "Receive offer, complete registration, and join BYA." },
+];
+
+const PRINCIPLES = [
+  {
+    icon: ShieldCheck,
+    title: "Non-Discriminatory",
+    desc: "Admission is open to every applicant regardless of academic background, nationality, ethnicity, religion, or gender. No child is turned away for medical conditions.",
+  },
+  {
+    icon: HandHeart,
+    title: "Support for Diverse Learners",
+    desc: "We welcome and support students with mild to moderate learning needs through tailored intervention plans and close collaboration with families.",
+  },
+  {
+    icon: Users,
+    title: "Fair & Transparent",
+    desc: "A clear process, published fees, and an admissions team committed to honest, timely communication with every family from inquiry to enrollment.",
+  },
+];
+
+const FEES = [
+  { stage: "Kindergarten (KG1 – KG3)", tuition: "ETB 78,000" },
+  { stage: "Grade 1 – 3", tuition: "ETB 92,000" },
+  { stage: "Grade 4 – 6", tuition: "ETB 108,000" },
+  { stage: "Grade 7 – 9", tuition: "ETB 124,000" },
+  { stage: "Grade 10 – 12", tuition: "ETB 148,000" },
 ];
 
 function genRef() {
