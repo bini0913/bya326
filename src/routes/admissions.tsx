@@ -106,7 +106,35 @@ function AdmissionsPage() {
         description="We welcome families from every background who share our commitment to academic excellence and global citizenship. Now accepting applications for 2026–2027."
       />
 
-      <section className="py-20 md:py-28">
+      {/* INTRO STORY */}
+      <section className="bg-white py-20 md:py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-14 lg:px-8">
+          <div className="lg:col-span-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">Our Approach</p>
+            <h2 className="mt-4 font-display text-3xl font-medium leading-[1.15] text-navy-900 md:text-4xl">
+              A fair, inclusive, and transparent admissions process.
+            </h2>
+          </div>
+          <div className="space-y-4 text-base leading-relaxed text-navy-900/75 lg:col-span-7">
+            <p>
+              At Boriyad Youth Academy, our admissions process is grounded in our
+              core values of equity, respect, and diversity. Admission is open to
+              all applicants — regardless of academic background, nationality,
+              ethnicity, religion, or gender.
+            </p>
+            <p>
+              We warmly invite families to visit the school before registration,
+              giving prospective students and parents the opportunity to tour our
+              facilities, meet our staff, and experience the learning environment
+              that defines life at Boriyad. We are committed to working closely
+              with every family to support the continued growth of each child.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS STEPS */}
+      <section className="bg-cream py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">Process</p>
@@ -128,6 +156,103 @@ function AdmissionsPage() {
           </div>
         </div>
       </section>
+
+      {/* CORE PRINCIPLES */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">Our Promise</p>
+            <h2 className="mt-3 font-display text-4xl font-medium text-navy-900 md:text-5xl">
+              Three Principles Behind Every Decision
+            </h2>
+            <div className="section-divider mt-6" />
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {PRINCIPLES.map((p) => (
+              <div key={p.title} className="rounded-sm border border-navy-900/10 bg-cream/40 p-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-sm border border-gold-500/40 bg-white text-gold-600">
+                  <p.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 font-display text-xl font-semibold text-navy-900">{p.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-navy-900/75">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEES */}
+      <section className="bg-cream py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">School Fees</p>
+            <h2 className="mt-3 font-display text-4xl font-medium text-navy-900 md:text-5xl">
+              Tuition Overview — 2026/2027
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              Transparent annual tuition by stage. Sibling and early-payment
+              discounts available. Final fees confirmed in the offer letter.
+            </p>
+          </div>
+
+          <div className="mt-12 overflow-hidden rounded-sm border border-navy-900/10 bg-white">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-navy-950 text-white">
+                <tr>
+                  <th className="px-6 py-4 font-semibold uppercase tracking-widest text-xs">Year Group</th>
+                  <th className="px-6 py-4 font-semibold uppercase tracking-widest text-xs">Annual Tuition</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-navy-900/10">
+                {FEES.map((f) => (
+                  <tr key={f.stage} className="hover:bg-cream/60">
+                    <td className="px-6 py-4 font-medium text-navy-900">{f.stage}</td>
+                    <td className="px-6 py-4 font-display text-lg text-navy-900">{f.tuition}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <FeeNote title="Application Fee" body="ETB 1,500 due at submission. Refundable if a place is not offered." />
+            <FeeNote title="Registration Deposit" body="ETB 5,000 to secure your child's place once an offer is accepted." />
+            <FeeNote title="Sibling Discount" body="5% second child · 10% third child · 15% fourth child on tuition." />
+          </div>
+        </div>
+      </section>
+
+      {/* ARRANGE A TOUR */}
+      <section className="relative overflow-hidden bg-navy-950 py-20 text-white md:py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-14 lg:px-8">
+          <div className="lg:col-span-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-500">Arrange a Tour</p>
+            <h2 className="mt-4 font-display text-3xl font-medium leading-[1.15] md:text-4xl">
+              Choosing the right school is one of the most important decisions a family can make.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75">
+              Seeing is believing. We warmly invite prospective parents and
+              students to visit our campus and experience the welcoming
+              atmosphere that defines life at Boriyad. Whether you're ready to
+              enroll or simply exploring, we'd be delighted to show you around.
+            </p>
+            <Link
+              to="/contact"
+              className="mt-8 inline-flex items-center gap-3 rounded-sm bg-gold-500 px-6 py-3.5 text-sm font-semibold text-navy-950 transition-all hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(224,184,74,0.55)]"
+            >
+              Schedule a Visit <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="space-y-4 lg:col-span-5">
+            <TourLine icon={Clock} title="Visiting Hours" body="Monday – Friday · 9:00 AM – 3:00 PM. Weekend visits on request." />
+            <TourLine icon={Phone} title="Admissions Office" body="+251 11 000 0000" />
+            <TourLine icon={Mail} title="Email" body="admissions@boriyad.edu" />
+            <TourLine icon={CalendarIcon} title="Next Intake" body="2026/2027 academic year — applications open." />
+          </div>
+        </div>
+      </section>
+
 
       <section className="bg-cream py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
