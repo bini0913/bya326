@@ -25,10 +25,11 @@ function ContactPage() {
   return (
     <MarketingShell>
       <PageHero
-        eyebrow="Contact"
-        title="We'd Love to Hear From You"
-        description="Reach our admissions and administration team for inquiries, campus visits, and partnerships."
+        eyebrowKey="contact.heroEyebrow"
+        titleKey="contact.heroTitle"
+        descriptionKey="contact.heroDesc"
       />
+
 
       <section className="py-20 md:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.2fr] lg:px-8">

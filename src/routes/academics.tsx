@@ -30,10 +30,11 @@ function AcademicsPage() {
   return (
     <MarketingShell>
       <PageHero
-        eyebrow="Academics"
-        title="Rigorous. Relevant. Remarkable."
-        description="A coherent curriculum from early years through university preparation, aligned with international standards."
+        eyebrowKey="academics.heroEyebrow"
+        titleKey="academics.heroTitle"
+        descriptionKey="academics.heroDesc"
       />
+
 
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

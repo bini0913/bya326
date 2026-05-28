@@ -101,10 +101,11 @@ function AdmissionsPage() {
   return (
     <MarketingShell>
       <PageHero
-        eyebrow="Admissions"
-        title="Join the BYA Community"
-        description="We welcome families from every background who share our commitment to academic excellence and global citizenship. Now accepting applications for 2026–2027."
+        eyebrowKey="admissions.heroEyebrow"
+        titleKey="admissions.heroTitle"
+        descriptionKey="admissions.heroDesc"
       />
+
 
       {/* INTRO STORY */}
       <section className="bg-white py-20 md:py-24">

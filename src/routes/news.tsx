@@ -36,10 +36,11 @@ function NewsPage() {
   return (
     <MarketingShell>
       <PageHero
-        eyebrow="News & Events"
-        title="Stories from Our Community"
-        description="Achievements, announcements, and campus happenings."
+        eyebrowKey="news.heroEyebrow"
+        titleKey="news.heroTitle"
+        descriptionKey="news.heroDesc"
       />
+
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {items === null ? (

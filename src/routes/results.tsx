@@ -29,10 +29,11 @@ function ResultsPage() {
   return (
     <MarketingShell>
       <PageHero
-        eyebrow="Results"
-        title="Excellence You Can Measure"
-        description="Year after year, our students achieve outstanding outcomes on national and international examinations."
+        eyebrowKey="results.heroEyebrow"
+        titleKey="results.heroTitle"
+        descriptionKey="results.heroDesc"
       />
+
 
       <section className="bg-navy-900 py-20 text-white md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

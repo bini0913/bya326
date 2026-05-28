@@ -19,17 +19,17 @@ const activities = [
   { icon: Cpu, title: "STEM Clubs", desc: "Robotics, coding, and science olympiad teams." },
   { icon: Sparkles, title: "Leadership", desc: "Student council, debate, Model UN, and peer mentoring." },
   { icon: Heart, title: "Community Service", desc: "Partnerships with local organizations and outreach projects." },
-  { icon: Users, title: "House System", desc: "Friendly competition fostering belonging and school spirit." },
 ];
 
 function StudentLifePage() {
   return (
     <MarketingShell>
       <PageHero
-        eyebrow="Student Life"
-        title="A Campus Alive with Possibility"
-        description="Where students discover passions, build friendships, and grow as leaders."
+        eyebrowKey="studentLife.heroEyebrow"
+        titleKey="studentLife.heroTitle"
+        descriptionKey="studentLife.heroDesc"
       />
+
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">

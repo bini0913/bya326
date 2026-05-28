@@ -1,10 +1,21 @@
+import { useTranslation } from "react-i18next";
+
 interface PageHeroProps {
-  eyebrow: string;
-  title: string;
+  /** Direct strings (back-compat) */
+  eyebrow?: string;
+  title?: string;
   description?: string;
+  /** Translation keys (preferred) */
+  eyebrowKey?: string;
+  titleKey?: string;
+  descriptionKey?: string;
 }
 
-export function PageHero({ eyebrow, title, description }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, eyebrowKey, titleKey, descriptionKey }: PageHeroProps) {
+  const { t } = useTranslation();
+  const eb = eyebrowKey ? t(eyebrowKey) : eyebrow ?? "";
+  const ti = titleKey ? t(titleKey) : title ?? "";
+  const de = descriptionKey ? t(descriptionKey) : description;
   return (
     <section className="cinematic-gradient relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
       <div
@@ -15,13 +26,13 @@ export function PageHero({ eyebrow, title, description }: PageHeroProps) {
         }}
       />
       <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-500">{eyebrow}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-500">{eb}</p>
         <h1 className="mt-4 font-display text-4xl font-medium text-white text-balance md:text-6xl">
-          {title}
+          {ti}
         </h1>
-        {description && (
+        {de && (
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-            {description}
+            {de}
           </p>
         )}
         <div className="section-divider mt-8" />

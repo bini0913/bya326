@@ -38,10 +38,11 @@ function GalleryPage() {
   return (
     <MarketingShell>
       <PageHero
-        eyebrow="Gallery"
-        title="Life at BYA"
-        description="Moments that capture our community, campus, and celebrations."
+        eyebrowKey="gallery.heroEyebrow"
+        titleKey="gallery.heroTitle"
+        descriptionKey="gallery.heroDesc"
       />
+
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {items === null ? (

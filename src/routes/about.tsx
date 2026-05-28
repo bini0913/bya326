@@ -17,10 +17,11 @@ function AboutPage() {
   return (
     <MarketingShell>
       <PageHero
-        eyebrow="About BYA"
-        title="A Legacy of Excellence"
-        description="Since our founding, Boriyad Youth Academy has prepared students for success in a changing world — with integrity, rigor, and heart."
+        eyebrowKey="about.heroEyebrow"
+        titleKey="about.heroTitle"
+        descriptionKey="about.heroDesc"
       />
+
 
       <LeadershipMessage />
 
