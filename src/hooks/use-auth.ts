@@ -19,10 +19,7 @@ export function useAuth(): AuthState {
 
   useEffect(() => {
     const loadRoles = async (uid: string) => {
-      const { data } = await supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", uid);
+      const { data } = await supabase.from("user_roles").select("role").eq("user_id", uid);
       setRoles((data ?? []).map((r) => r.role as AppRole));
     };
 
@@ -31,7 +28,9 @@ export function useAuth(): AuthState {
       setUser(u);
       if (u) {
         // defer to avoid deadlocks
-        setTimeout(() => { void loadRoles(u.id); }, 0);
+        setTimeout(() => {
+          void loadRoles(u.id);
+        }, 0);
       } else {
         setRoles([]);
       }

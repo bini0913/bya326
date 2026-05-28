@@ -52,7 +52,6 @@
   --font-display: "DM Serif Display", "Cormorant Garamond", Georgia, serif;
 }
 
-
 :root {
   --radius: 0.5rem;
   --background: oklch(0.985 0.005 90);
@@ -92,15 +91,22 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.01em;
   }
 }
 
 @layer utilities {
-  .text-balance { text-wrap: balance; }
-  .font-display { font-family: var(--font-display); }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
 
   .cinematic-gradient {
     background: linear-gradient(135deg, #04222a 0%, #0a3a44 35%, #115560 65%, #04222a 100%);
@@ -112,7 +118,6 @@
     background-clip: text;
     color: transparent;
   }
-
 
   .section-divider {
     margin-left: auto;
@@ -134,8 +139,14 @@
     animation: fadeInUp 0.7s ease-out both;
   }
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .leadership-portrait,
@@ -143,14 +154,19 @@
     animation: portraitBreathe 6s ease-in-out infinite;
   }
   @keyframes portraitBreathe {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.01); }
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.01);
+    }
   }
 
   .leadership-cta:hover {
     background: #c9a86a;
     border-color: #c9a86a;
-    color: #081B33;
+    color: #081b33;
     box-shadow: 0 0 28px rgba(201, 168, 106, 0.55);
   }
 }

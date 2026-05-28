@@ -32,7 +32,11 @@ function AdminLayout() {
   }, [loading, user, navigate]);
 
   if (loading) {
-    return <div className="flex min-h-screen items-center justify-center bg-cream"><p className="text-sm text-muted-foreground">Loading…</p></div>;
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-cream">
+        <p className="text-sm text-muted-foreground">Loading…</p>
+      </div>
+    );
   }
   if (!user) return null;
 
@@ -43,10 +47,14 @@ function AdminLayout() {
           <ShieldAlert className="mx-auto h-10 w-10 text-gold-600" />
           <h1 className="mt-4 font-display text-2xl font-semibold text-navy-900">Access pending</h1>
           <p className="mt-3 text-sm text-muted-foreground">
-            Your account ({user.email}) is signed in but has no staff role assigned. Contact a site administrator to be granted access.
+            Your account ({user.email}) is signed in but has no staff role assigned. Contact a site
+            administrator to be granted access.
           </p>
           <button
-            onClick={async () => { await supabase.auth.signOut(); navigate({ to: "/login" }); }}
+            onClick={async () => {
+              await supabase.auth.signOut();
+              navigate({ to: "/login" });
+            }}
             className="mt-6 inline-flex items-center gap-2 rounded-sm border border-navy-900/20 px-4 py-2 text-sm font-semibold text-navy-900 hover:bg-navy-900 hover:text-white"
           >
             <LogOut className="h-4 w-4" /> Sign out
@@ -72,7 +80,8 @@ function AdminLayout() {
             const Icon = it.icon;
             return (
               <Link
-                key={it.to} to={it.to}
+                key={it.to}
+                to={it.to}
                 className={`mb-1 flex items-center gap-3 rounded-sm px-3 py-2.5 text-sm transition-colors ${active ? "bg-gold-500 text-navy-900 font-semibold" : "text-white/80 hover:bg-white/10"}`}
               >
                 <Icon className="h-4 w-4" /> {it.label}
@@ -86,7 +95,10 @@ function AdminLayout() {
             {isAdmin ? "Administrator" : roles.join(", ") || "Staff"}
           </p>
           <button
-            onClick={async () => { await supabase.auth.signOut(); navigate({ to: "/login" }); }}
+            onClick={async () => {
+              await supabase.auth.signOut();
+              navigate({ to: "/login" });
+            }}
             className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-white/80 hover:text-gold-500"
           >
             <LogOut className="h-3.5 w-3.5" /> Sign out
@@ -97,7 +109,13 @@ function AdminLayout() {
       <main className="flex-1 overflow-x-hidden">
         <header className="flex items-center justify-between border-b border-navy-900/10 bg-white px-6 py-4 md:hidden">
           <p className="font-display text-lg text-navy-900">Admin</p>
-          <button onClick={async () => { await supabase.auth.signOut(); navigate({ to: "/login" }); }} className="text-sm text-navy-900">
+          <button
+            onClick={async () => {
+              await supabase.auth.signOut();
+              navigate({ to: "/login" });
+            }}
+            className="text-sm text-navy-900"
+          >
             Sign out
           </button>
         </header>
@@ -105,7 +123,11 @@ function AdminLayout() {
           {items.map((it) => {
             const active = it.exact ? pathname === it.to : pathname.startsWith(it.to);
             return (
-              <Link key={it.to} to={it.to} className={`whitespace-nowrap rounded-sm px-3 py-1.5 text-xs font-semibold ${active ? "bg-navy-900 text-white" : "text-navy-900/70"}`}>
+              <Link
+                key={it.to}
+                to={it.to}
+                className={`whitespace-nowrap rounded-sm px-3 py-1.5 text-xs font-semibold ${active ? "bg-navy-900 text-white" : "text-navy-900/70"}`}
+              >
                 {it.label}
               </Link>
             );

@@ -9,10 +9,9 @@ export function LeadershipMessage() {
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setVisible(true),
-      { threshold: 0.15 },
-    );
+    const obs = new IntersectionObserver(([entry]) => entry.isIntersecting && setVisible(true), {
+      threshold: 0.15,
+    });
     obs.observe(node);
     return () => obs.disconnect();
   }, []);
@@ -56,31 +55,25 @@ export function LeadershipMessage() {
 
           <div className="mt-8 space-y-5 text-[1.05rem] leading-relaxed text-navy-900/80">
             <p>
-              At Boriyad Youth Academy, we believe education extends far beyond
-              the walls of a classroom. Our mission is to nurture disciplined,
-              confident, and capable young people prepared to contribute
-              meaningfully to Ethiopia and to the world.
+              At Boriyad Youth Academy, we believe education extends far beyond the walls of a
+              classroom. Our mission is to nurture disciplined, confident, and capable young people
+              prepared to contribute meaningfully to Ethiopia and to the world.
             </p>
             <p>
-              Every learner deserves an environment built on excellence,
-              integrity, and opportunity. Together with parents and educators,
-              we strive to raise a generation of thoughtful future leaders.
+              Every learner deserves an environment built on excellence, integrity, and opportunity.
+              Together with parents and educators, we strive to raise a generation of thoughtful
+              future leaders.
             </p>
           </div>
 
           {/* Signature */}
           <div className="mt-10">
-            <p
-              className="font-display text-3xl text-navy-900"
-              style={{ fontStyle: "italic" }}
-            >
+            <p className="font-display text-3xl text-navy-900" style={{ fontStyle: "italic" }}>
               Jalanne Tadesse
             </p>
             <div className="mt-2 h-px w-32 bg-navy-900/20" />
             <p className="mt-3 font-semibold text-navy-900">Mrs. Jalanne Tadesse</p>
-            <p className="text-sm text-navy-900/60">
-              General Manager · Boriyad Youth Academy
-            </p>
+            <p className="text-sm text-navy-900/60">General Manager · Boriyad Youth Academy</p>
           </div>
 
           <div className="mt-10">

@@ -9,7 +9,9 @@ function detectInitialLang(): AppLang {
   try {
     const saved = window.localStorage.getItem(STORAGE_KEY);
     if (saved && (LANGS as string[]).includes(saved)) return saved as AppLang;
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
   const nav = (typeof navigator !== "undefined" ? navigator.language : "").toLowerCase();
   if (nav.startsWith("am")) return "am";
   if (nav.startsWith("om") || nav.startsWith("orm")) return "om";
@@ -34,7 +36,9 @@ export function setLang(lng: AppLang) {
       window.localStorage.setItem(STORAGE_KEY, lng);
       document.documentElement.setAttribute("lang", lng);
     }
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 }
 
 export { i18n, LANGS };

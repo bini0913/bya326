@@ -46,8 +46,12 @@ function LoginPage() {
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="" className="h-10 w-10 object-contain" />
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-navy-900">Boriyad Youth Academy</p>
-            <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-gold-600">Staff Portal</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-navy-900">
+              Boriyad Youth Academy
+            </p>
+            <p className="text-[9px] font-medium uppercase tracking-[0.2em] text-gold-600">
+              Staff Portal
+            </p>
           </div>
         </Link>
         <h1 className="mt-8 font-display text-3xl font-medium text-navy-900">Sign in</h1>
@@ -55,24 +59,35 @@ function LoginPage() {
 
         <form onSubmit={onSubmit} className="mt-8 space-y-4">
           <div>
-            <label htmlFor="email" className="text-sm font-semibold text-navy-900">Email</label>
+            <label htmlFor="email" className="text-sm font-semibold text-navy-900">
+              Email
+            </label>
             <input
-              id="email" type="email" required value={email}
+              id="email"
+              type="email"
+              required
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="mt-2 block w-full rounded-sm border border-navy-900/15 bg-cream px-4 py-3 text-sm text-navy-900 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
             />
           </div>
           <div>
-            <label htmlFor="password" className="text-sm font-semibold text-navy-900">Password</label>
+            <label htmlFor="password" className="text-sm font-semibold text-navy-900">
+              Password
+            </label>
             <input
-              id="password" type="password" required value={password}
+              id="password"
+              type="password"
+              required
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="mt-2 block w-full rounded-sm border border-navy-900/15 bg-cream px-4 py-3 text-sm text-navy-900 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500"
             />
           </div>
           {error && <p className="rounded-sm bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
           <button
-            type="submit" disabled={loading}
+            type="submit"
+            disabled={loading}
             className="group inline-flex w-full items-center justify-center gap-2 rounded-sm bg-navy-900 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-navy-800 disabled:opacity-60"
           >
             {loading ? "Signing in…" : "Sign in"}
