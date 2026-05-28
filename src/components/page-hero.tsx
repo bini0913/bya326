@@ -11,10 +11,17 @@ interface PageHeroProps {
   descriptionKey?: string;
 }
 
-export function PageHero({ eyebrow, title, description, eyebrowKey, titleKey, descriptionKey }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  description,
+  eyebrowKey,
+  titleKey,
+  descriptionKey,
+}: PageHeroProps) {
   const { t } = useTranslation();
-  const eb = eyebrowKey ? t(eyebrowKey) : eyebrow ?? "";
-  const ti = titleKey ? t(titleKey) : title ?? "";
+  const eb = eyebrowKey ? t(eyebrowKey) : (eyebrow ?? "");
+  const ti = titleKey ? t(titleKey) : (title ?? "");
   const de = descriptionKey ? t(descriptionKey) : description;
   return (
     <section className="cinematic-gradient relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">

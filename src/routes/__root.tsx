@@ -9,7 +9,6 @@ import {
 } from "@tanstack/react-router";
 import "@/i18n";
 
-
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -75,13 +74,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Boriyad Youth Academy — KG–Grade 12 in Addis Ababa" },
-      { name: "description", content: "Premier KG–Grade 12 international school in Ethiopia. Shaping Ethiopia's next generation of leaders through rigorous academics, character, and global citizenship." },
+      {
+        name: "description",
+        content:
+          "Premier KG–Grade 12 international school in Ethiopia. Shaping Ethiopia's next generation of leaders through rigorous academics, character, and global citizenship.",
+      },
       { name: "author", content: "Boriyad Youth Academy" },
       { property: "og:title", content: "Boriyad Youth Academy" },
-      { property: "og:description", content: "Preparing the Future Generations for Success in a changing World!" },
+      {
+        property: "og:description",
+        content: "Preparing the Future Generations for Success in a changing World!",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -95,7 +100,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
-
   }),
   shellComponent: RootShell,
   component: RootComponent,

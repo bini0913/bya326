@@ -9,7 +9,10 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Boriyad Youth Academy" },
-      { name: "description", content: "Contact Boriyad Youth Academy for admissions, visits, and general inquiries." },
+      {
+        name: "description",
+        content: "Contact Boriyad Youth Academy for admissions, visits, and general inquiries.",
+      },
     ],
   }),
   component: ContactPage,
@@ -30,7 +33,6 @@ function ContactPage() {
         descriptionKey="contact.heroDesc"
       />
 
-
       <section className="py-20 md:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.2fr] lg:px-8">
           <div>
@@ -40,31 +42,55 @@ function ContactPage() {
             </p>
             <ul className="mt-8 space-y-5 text-sm">
               <li className="flex gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-navy-900 text-gold-500"><MapPin className="h-5 w-5" /></span>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-navy-900 text-gold-500">
+                  <MapPin className="h-5 w-5" />
+                </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">Address</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">
+                    Address
+                  </p>
                   <p className="mt-1 font-medium text-navy-900">{SITE.address}</p>
                 </div>
               </li>
               <li className="flex gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-navy-900 text-gold-500"><Mail className="h-5 w-5" /></span>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-navy-900 text-gold-500">
+                  <Mail className="h-5 w-5" />
+                </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">Email</p>
-                  <a href={`mailto:${SITE.email}`} className="mt-1 block font-medium text-navy-900 hover:text-gold-600">{SITE.email}</a>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">
+                    Email
+                  </p>
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="mt-1 block font-medium text-navy-900 hover:text-gold-600"
+                  >
+                    {SITE.email}
+                  </a>
                 </div>
               </li>
               <li className="flex gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-navy-900 text-gold-500"><Phone className="h-5 w-5" /></span>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-navy-900 text-gold-500">
+                  <Phone className="h-5 w-5" />
+                </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">Phone</p>
-                  <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="mt-1 block font-medium text-navy-900 hover:text-gold-600">{SITE.phone}</a>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">
+                    Phone
+                  </p>
+                  <a
+                    href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+                    className="mt-1 block font-medium text-navy-900 hover:text-gold-600"
+                  >
+                    {SITE.phone}
+                  </a>
                 </div>
               </li>
             </ul>
             <div className="mt-10 aspect-[4/3] rounded-sm bg-gradient-to-br from-navy-800 to-navy-950 p-6 text-white">
               <p className="text-xs uppercase tracking-widest text-gold-500">Map</p>
               <p className="mt-2 font-display text-2xl">Find Us in Addis Ababa</p>
-              <p className="mt-2 text-sm text-white/60">Integrate Google Maps API to display campus location.</p>
+              <p className="mt-2 text-sm text-white/60">
+                Integrate Google Maps API to display campus location.
+              </p>
             </div>
           </div>
 
@@ -73,8 +99,12 @@ function ContactPage() {
             {submitted ? (
               <div className="mt-8 rounded-sm border border-gold-500/30 bg-cream p-8 text-center">
                 <CheckCircle2 className="mx-auto h-10 w-10 text-gold-600" />
-                <p className="mt-4 font-display text-xl font-semibold text-navy-900">Message sent!</p>
-                <p className="mt-2 text-sm text-muted-foreground">We'll respond within 1–2 business days.</p>
+                <p className="mt-4 font-display text-xl font-semibold text-navy-900">
+                  Message sent!
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  We'll respond within 1–2 business days.
+                </p>
               </div>
             ) : (
               <form onSubmit={onSubmit} className="mt-6 grid gap-5">
@@ -105,11 +135,22 @@ function ContactPage() {
   );
 }
 
-function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+}) {
   return (
     <div>
       <label htmlFor={name} className="text-sm font-semibold text-navy-900">
-        {label}{required && <span className="text-gold-600"> *</span>}
+        {label}
+        {required && <span className="text-gold-600"> *</span>}
       </label>
       <input
         id={name}

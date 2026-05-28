@@ -14,7 +14,11 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
 });
 
-interface Img { id: string; url: string; caption: string | null }
+interface Img {
+  id: string;
+  url: string;
+  caption: string | null;
+}
 
 function GalleryPage() {
   const [items, setItems] = useState<Img[] | null>(null);
@@ -52,8 +56,16 @@ function GalleryPage() {
           ) : (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {items.map((img) => (
-                <figure key={img.id} className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-navy-900">
-                  <img src={img.url} alt={img.caption ?? ""} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <figure
+                  key={img.id}
+                  className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-navy-900"
+                >
+                  <img
+                    src={img.url}
+                    alt={img.caption ?? ""}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                   {img.caption && (
                     <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-900/80 to-transparent p-4">
                       <p className="font-display text-lg font-semibold text-white">{img.caption}</p>

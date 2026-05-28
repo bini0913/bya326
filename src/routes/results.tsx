@@ -7,15 +7,24 @@ export const Route = createFileRoute("/results")({
   head: () => ({
     meta: [
       { title: "Results — Boriyad Youth Academy" },
-      { name: "description", content: "BYA national exam results, IGCSE achievements, and university placements." },
+      {
+        name: "description",
+        content: "BYA national exam results, IGCSE achievements, and university placements.",
+      },
     ],
   }),
   component: ResultsPage,
 });
 
 const universities = [
-  "Addis Ababa University", "University of London", "MIT (USA)", "University of Toronto",
-  "AAU Engineering", "Oxford Brookes", "Stanford (USA)", "University of Cape Town",
+  "Addis Ababa University",
+  "University of London",
+  "MIT (USA)",
+  "University of Toronto",
+  "AAU Engineering",
+  "Oxford Brookes",
+  "Stanford (USA)",
+  "University of Cape Town",
 ];
 
 const yearly = [
@@ -34,7 +43,6 @@ function ResultsPage() {
         descriptionKey="results.heroDesc"
       />
 
-
       <section className="bg-navy-900 py-20 text-white md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 sm:grid-cols-3">
@@ -43,9 +51,14 @@ function ResultsPage() {
               { n: "72%", l: "A/A* Grades (IGCSE)" },
               { n: "40+", l: "International Placements (2024)" },
             ].map((s) => (
-              <div key={s.l} className="rounded-sm border border-white/10 bg-white/5 p-8 text-center">
+              <div
+                key={s.l}
+                className="rounded-sm border border-white/10 bg-white/5 p-8 text-center"
+              >
                 <p className="font-display text-6xl font-medium text-gold-500">{s.n}</p>
-                <p className="mt-3 text-sm font-semibold uppercase tracking-widest text-white/80">{s.l}</p>
+                <p className="mt-3 text-sm font-semibold uppercase tracking-widest text-white/80">
+                  {s.l}
+                </p>
               </div>
             ))}
           </div>
@@ -81,17 +94,30 @@ function ResultsPage() {
       <section className="py-20 md:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
           <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
-            <img src={gradImg} alt="Graduation ceremony" className="h-full w-full object-cover" loading="lazy" />
+            <img
+              src={gradImg}
+              alt="Graduation ceremony"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">University Placements</p>
-            <h2 className="mt-3 font-display text-4xl font-medium text-navy-900 md:text-5xl">Graduates Around the World</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">
+              University Placements
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-medium text-navy-900 md:text-5xl">
+              Graduates Around the World
+            </h2>
             <p className="mt-4 text-muted-foreground">
-              Recent BYA alumni have been accepted to leading universities in Ethiopia, the UK, USA, and beyond.
+              Recent BYA alumni have been accepted to leading universities in Ethiopia, the UK, USA,
+              and beyond.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {universities.map((u) => (
-                <li key={u} className="rounded-sm border border-navy-900/10 bg-white px-4 py-3 text-sm font-medium text-navy-900">
+                <li
+                  key={u}
+                  className="rounded-sm border border-navy-900/10 bg-white px-4 py-3 text-sm font-medium text-navy-900"
+                >
                   {u}
                 </li>
               ))}

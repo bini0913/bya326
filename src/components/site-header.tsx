@@ -31,10 +31,14 @@ export function SiteHeader() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   const isHome = pathname === "/";
   const linkCls = (active: boolean) =>
@@ -49,7 +53,11 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex min-w-0 shrink-0 items-center gap-3" aria-label={t("site.name")}>
+        <Link
+          to="/"
+          className="flex min-w-0 shrink-0 items-center gap-3"
+          aria-label={t("site.name")}
+        >
           <img src={logo} alt="" width={48} height={48} className="h-11 w-11 object-contain" />
           <div className="hidden min-w-0 sm:block">
             <p className="truncate text-[11px] font-bold uppercase tracking-[0.12em] text-white md:text-xs">
@@ -64,14 +72,18 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-5 xl:gap-7 lg:flex" aria-label="Main navigation">
           <Link to="/" className={linkCls(isHome)}>
             {t("nav.home")}
-            {isHome && <span className="absolute -bottom-1 left-0 right-0 mx-auto h-px w-6 bg-gold-500" />}
+            {isHome && (
+              <span className="absolute -bottom-1 left-0 right-0 mx-auto h-px w-6 bg-gold-500" />
+            )}
           </Link>
           {navRoutes.map((l) => {
             const active = pathname === l.href;
             return (
               <Link key={l.href} to={l.href} className={linkCls(active)}>
                 {l.label}
-                {active && <span className="absolute -bottom-1 left-0 right-0 mx-auto h-px w-6 bg-gold-500" />}
+                {active && (
+                  <span className="absolute -bottom-1 left-0 right-0 mx-auto h-px w-6 bg-gold-500" />
+                )}
               </Link>
             );
           })}
@@ -107,9 +119,18 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-white/10 bg-navy-900/95 backdrop-blur-xl lg:hidden">
           <nav className="flex flex-col gap-1 px-4 py-6" aria-label="Mobile navigation">
-            <Link to="/" className="rounded-sm px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10">{t("nav.home")}</Link>
+            <Link
+              to="/"
+              className="rounded-sm px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10"
+            >
+              {t("nav.home")}
+            </Link>
             {navRoutes.map((l) => (
-              <Link key={l.href} to={l.href} className="rounded-sm px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10 hover:text-gold-500">
+              <Link
+                key={l.href}
+                to={l.href}
+                className="rounded-sm px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10 hover:text-gold-500"
+              >
                 {l.label}
               </Link>
             ))}

@@ -2,10 +2,25 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import {
-  ArrowRight, Play, GraduationCap, Lightbulb, Globe2,
-  Users, BookOpen, Award, Building2, TrendingUp,
-  Music, Trophy, Sparkles, Heart, Calendar,
-  ShieldCheck, HandHeart, Compass, Quote,
+  ArrowRight,
+  Play,
+  GraduationCap,
+  Lightbulb,
+  Globe2,
+  Users,
+  BookOpen,
+  Award,
+  Building2,
+  TrendingUp,
+  Music,
+  Trophy,
+  Sparkles,
+  Heart,
+  Calendar,
+  ShieldCheck,
+  HandHeart,
+  Compass,
+  Quote,
 } from "lucide-react";
 import { MarketingShell } from "@/components/marketing-shell";
 import heroBg from "@/assets/hero-campus.jpg";
@@ -22,9 +37,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Boriyad Youth Academy — Shaping Ethiopia's Next Generation of Leaders" },
-      { name: "description", content: "Premier KG–Grade 12 academy in Addis Ababa. World-class academics, character formation, and global outlook for Ethiopia's future leaders." },
+      {
+        name: "description",
+        content:
+          "Premier KG–Grade 12 academy in Addis Ababa. World-class academics, character formation, and global outlook for Ethiopia's future leaders.",
+      },
       { property: "og:title", content: "Boriyad Youth Academy" },
-      { property: "og:description", content: "Shaping Ethiopia's Next Generation of Leaders — KG to Grade 12." },
+      {
+        property: "og:description",
+        content: "Shaping Ethiopia's Next Generation of Leaders — KG to Grade 12.",
+      },
     ],
   }),
   component: HomePage,
@@ -80,11 +102,10 @@ function Hero() {
           <div className="mt-5 h-[3px] w-40 bg-gradient-to-r from-gold-500 to-transparent" />
 
           <p className="mt-7 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
-            From Kindergarten through Grade 12, Boriyad Youth Academy cultivates
-            scholars of intellect and character — prepared to lead with
-            conviction, serve with purpose, and shape the world they inherit.
+            From Kindergarten through Grade 12, Boriyad Youth Academy cultivates scholars of
+            intellect and character — prepared to lead with conviction, serve with purpose, and
+            shape the world they inherit.
           </p>
-
 
           <div className="mt-9 flex flex-wrap items-center gap-3 md:gap-4">
             <Link
@@ -176,7 +197,13 @@ function FloatingIcon({
 /* ============================== STATS ============================== */
 const STATS = [
   { icon: Users, value: 1300, suffix: "+", label: "Students", sub: "Growing Leaders" },
-  { icon: GraduationCap, value: 100, suffix: "+", label: "Qualified Teachers", sub: "Experts in Education" },
+  {
+    icon: GraduationCap,
+    value: 100,
+    suffix: "+",
+    label: "Qualified Teachers",
+    sub: "Experts in Education",
+  },
   { icon: Award, value: 10, suffix: "+", label: "Years of Excellence", sub: "Inspiring Greatness" },
   { icon: Building2, value: 2, suffix: "", label: "Campuses", sub: "Addis Ababa" },
   { icon: TrendingUp, value: 98, suffix: "%", label: "Exam Success", sub: "Outstanding Results" },
@@ -192,7 +219,8 @@ function StatsStrip() {
               <s.icon className="h-7 w-7 shrink-0 text-gold-500" />
               <div className="min-w-0">
                 <p className="font-display text-2xl font-medium text-white md:text-3xl">
-                  <Counter to={s.value} />{s.suffix}
+                  <Counter to={s.value} />
+                  {s.suffix}
                 </p>
                 <p className="truncate text-xs font-semibold text-white">{s.label}</p>
                 <p className="truncate text-[10px] text-white/55">{s.sub}</p>
@@ -269,8 +297,7 @@ function WelcomeStory() {
             <div className="absolute -bottom-6 -right-4 hidden max-w-[260px] rounded-sm border border-gold-500/30 bg-white p-5 shadow-xl md:block">
               <Quote className="h-6 w-6 text-gold-600" />
               <p className="mt-2 font-display text-sm italic leading-relaxed text-navy-900">
-                "Every child who walks through our gates is known, challenged,
-                and championed."
+                "Every child who walks through our gates is known, challenged, and championed."
               </p>
               <p className="mt-3 text-[11px] font-semibold uppercase tracking-widest text-navy-900/60">
                 Principal's Welcome
@@ -287,17 +314,16 @@ function WelcomeStory() {
             </h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-navy-900/75">
               <p>
-                It is with great pride that I welcome you to Boriyad Youth Academy.
-                We are a thriving learning community spanning Kindergarten through
-                Grade 12, supported by passionate educators and engaged families
-                who believe deeply in the promise of the next generation.
+                It is with great pride that I welcome you to Boriyad Youth Academy. We are a
+                thriving learning community spanning Kindergarten through Grade 12, supported by
+                passionate educators and engaged families who believe deeply in the promise of the
+                next generation.
               </p>
               <p>
-                At Boriyad, we hold high expectations for every learner — not only
-                in academics, but in character, curiosity, and contribution. Our
-                graduates leave us prepared to lead with conviction, to serve
-                with purpose, and to engage the world with both Ethiopian roots
-                and a global outlook.
+                At Boriyad, we hold high expectations for every learner — not only in academics, but
+                in character, curiosity, and contribution. Our graduates leave us prepared to lead
+                with conviction, to serve with purpose, and to engage the world with both Ethiopian
+                roots and a global outlook.
               </p>
             </div>
 
@@ -361,8 +387,8 @@ function WhatMakesUsDifferent() {
               Our Promise to Every Family
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-navy-900/70">
-              Three commitments shape the daily life of our school — and the
-              outcomes our students carry with them long after graduation.
+              Three commitments shape the daily life of our school — and the outcomes our students
+              carry with them long after graduation.
             </p>
           </Reveal>
         </div>
@@ -374,7 +400,9 @@ function WhatMakesUsDifferent() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-sm border border-gold-500/40 bg-white text-gold-600">
                   <p.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-6 font-display text-2xl font-semibold text-navy-900">{p.title}</h3>
+                <h3 className="mt-6 font-display text-2xl font-semibold text-navy-900">
+                  {p.title}
+                </h3>
                 <p className="mt-3 text-sm leading-relaxed text-navy-900/70">{p.desc}</p>
               </div>
             </Reveal>
@@ -396,10 +424,9 @@ function AboutPreview() {
             An Institution Built on Purpose
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-navy-900/70">
-            Boriyad is more than a school — it is a community of scholars,
-            mentors, and families committed to forming young people of
-            substance. Every student is known by name, challenged by
-            expectation, and championed in pursuit of their best work.
+            Boriyad is more than a school — it is a community of scholars, mentors, and families
+            committed to forming young people of substance. Every student is known by name,
+            challenged by expectation, and championed in pursuit of their best work.
           </p>
 
           <Link
@@ -416,9 +443,24 @@ function AboutPreview() {
 
 /* ============================== PROGRAMS ============================== */
 const PROGRAMS = [
-  { title: "Elementary", grades: "KG – Grade 6", img: studentsYoung, desc: "Curiosity, literacy, and confidence in a nurturing foundation." },
-  { title: "Secondary", grades: "Grade 7 – 10", img: studentsGroup, desc: "Critical thinking, STEM, and leadership through project learning." },
-  { title: "Preparatory", grades: "Grade 11 – 12", img: graduationClass, desc: "University preparation, national exams, and global pathways." },
+  {
+    title: "Elementary",
+    grades: "KG – Grade 6",
+    img: studentsYoung,
+    desc: "Curiosity, literacy, and confidence in a nurturing foundation.",
+  },
+  {
+    title: "Secondary",
+    grades: "Grade 7 – 10",
+    img: studentsGroup,
+    desc: "Critical thinking, STEM, and leadership through project learning.",
+  },
+  {
+    title: "Preparatory",
+    grades: "Grade 11 – 12",
+    img: graduationClass,
+    desc: "University preparation, national exams, and global pathways.",
+  },
 ];
 
 function ProgramsPreview() {
@@ -431,7 +473,6 @@ function ProgramsPreview() {
             <h2 className="mt-5 font-display text-4xl font-medium text-navy-900 md:text-5xl">
               A Continuum of Academic Excellence
             </h2>
-
           </Reveal>
         </div>
 
@@ -440,7 +481,12 @@ function ProgramsPreview() {
             <Reveal key={p.title} delay={i * 0.1}>
               <article className="group h-full overflow-hidden rounded-sm border border-navy-900/10 bg-white transition-all hover:-translate-y-1 hover:border-gold-500/50 hover:shadow-[0_25px_50px_-20px_rgba(8,27,51,0.35)]">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={p.img} alt={p.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-navy-950/10 to-transparent" />
                   <p className="absolute bottom-3 left-4 text-xs font-semibold uppercase tracking-widest text-gold-400">
                     {p.grades}
@@ -449,7 +495,10 @@ function ProgramsPreview() {
                 <div className="p-6">
                   <h3 className="font-display text-2xl font-semibold text-navy-900">{p.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-navy-900/70">{p.desc}</p>
-                  <Link to="/academics" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy-900 transition-colors group-hover:text-gold-600">
+                  <Link
+                    to="/academics"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy-900 transition-colors group-hover:text-gold-600"
+                  >
                     Discover <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -464,9 +513,24 @@ function ProgramsPreview() {
 
 /* ============================== ACHIEVEMENTS ============================== */
 const ACHIEVEMENTS = [
-  { icon: Trophy, title: "National Awards", value: "25+", desc: "Gold and silver placements across science and arts olympiads." },
-  { icon: TrendingUp, title: "Exam Results", value: "98%", desc: "Pass rate on national matric examinations year over year." },
-  { icon: Sparkles, title: "Competitions", value: "40+", desc: "Inter-school debate, robotics, and athletics championships." },
+  {
+    icon: Trophy,
+    title: "National Awards",
+    value: "25+",
+    desc: "Gold and silver placements across science and arts olympiads.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Exam Results",
+    value: "98%",
+    desc: "Pass rate on national matric examinations year over year.",
+  },
+  {
+    icon: Sparkles,
+    title: "Competitions",
+    value: "40+",
+    desc: "Inter-school debate, robotics, and athletics championships.",
+  },
 ];
 
 function AchievementsPreview() {
@@ -483,7 +547,6 @@ function AchievementsPreview() {
             <h2 className="mt-5 font-display text-4xl font-medium md:text-5xl">
               A Tradition of Distinction
             </h2>
-
           </Reveal>
         </div>
 
@@ -503,7 +566,10 @@ function AchievementsPreview() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/results" className="inline-flex items-center gap-2 rounded-sm border border-gold-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-gold-500/10">
+          <Link
+            to="/results"
+            className="inline-flex items-center gap-2 rounded-sm border border-gold-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-gold-500/10"
+          >
             View All Results <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -537,8 +603,16 @@ function StudentLifePreview() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {LIFE.map((l, i) => (
             <Reveal key={l.title} delay={i * 0.08}>
-              <Link to="/student-life" className="group relative block aspect-[3/4] overflow-hidden rounded-sm">
-                <img src={l.img} alt={l.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              <Link
+                to="/student-life"
+                className="group relative block aspect-[3/4] overflow-hidden rounded-sm"
+              >
+                <img
+                  src={l.img}
+                  alt={l.title}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/30 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5">
                   <l.icon className="h-6 w-6 text-gold-500" />
@@ -555,9 +629,29 @@ function StudentLifePreview() {
 
 /* ============================== NEWS ============================== */
 const NEWS = [
-  { title: "100% Pass Rate on Regional Grade 6 Exam", excerpt: "Our 2024/2025 cohort achieved a perfect pass rate with outstanding individual scores.", date: "2025-03-12", category: "Achievement", img: examResults },
-  { title: "Class of 2024 Graduates with Honors", excerpt: "Celebrating another distinguished graduating class moving on to preparatory and beyond.", date: "2025-02-28", category: "Academics", img: graduationClass },
-  { title: "Spring Open Day — Register Now", excerpt: "Tour our campus, meet faculty, and experience a day at BYA.", date: "2025-04-05", category: "Admissions", img: morningAssembly },
+  {
+    title: "100% Pass Rate on Regional Grade 6 Exam",
+    excerpt:
+      "Our 2024/2025 cohort achieved a perfect pass rate with outstanding individual scores.",
+    date: "2025-03-12",
+    category: "Achievement",
+    img: examResults,
+  },
+  {
+    title: "Class of 2024 Graduates with Honors",
+    excerpt:
+      "Celebrating another distinguished graduating class moving on to preparatory and beyond.",
+    date: "2025-02-28",
+    category: "Academics",
+    img: graduationClass,
+  },
+  {
+    title: "Spring Open Day — Register Now",
+    excerpt: "Tour our campus, meet faculty, and experience a day at BYA.",
+    date: "2025-04-05",
+    category: "Admissions",
+    img: morningAssembly,
+  },
 ];
 
 function NewsPreview() {
@@ -572,7 +666,10 @@ function NewsPreview() {
             </h2>
           </div>
 
-          <Link to="/news" className="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:text-gold-600">
+          <Link
+            to="/news"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:text-gold-600"
+          >
             All News <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -581,20 +678,34 @@ function NewsPreview() {
             <Reveal key={n.title} delay={i * 0.1}>
               <article className="group flex h-full flex-col overflow-hidden rounded-sm border border-navy-900/10 bg-white transition-all hover:-translate-y-1 hover:border-gold-500/50 hover:shadow-lg">
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <img src={n.img} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                  <img
+                    src={n.img}
+                    alt=""
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
                   <span className="absolute left-3 top-3 rounded-sm bg-navy-950/85 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-gold-400 backdrop-blur">
                     {n.category}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <time className="text-xs text-navy-900/55">
-                    {new Date(n.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    {new Date(n.date).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
                   </time>
                   <h3 className="mt-2 font-display text-xl font-semibold text-navy-900 group-hover:text-gold-600">
                     {n.title}
                   </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-navy-900/70">{n.excerpt}</p>
-                  <Link to="/news" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-navy-900 hover:text-gold-600">
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-navy-900/70">
+                    {n.excerpt}
+                  </p>
+                  <Link
+                    to="/news"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-navy-900 hover:text-gold-600"
+                  >
                     Read more <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
@@ -624,16 +735,22 @@ function AdmissionsCTA() {
             An Education Worthy of Their Ambition
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base text-white/80 md:text-lg">
-            Admission to Boriyad is selective and intentional. Begin a
-            conversation with our admissions office, or schedule a private
-            campus visit.
+            Admission to Boriyad is selective and intentional. Begin a conversation with our
+            admissions office, or schedule a private campus visit.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link to="/admissions" className="group inline-flex items-center gap-3 rounded-sm bg-gold-500 px-7 py-4 text-sm font-semibold text-navy-950 transition-all hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(224,184,74,0.55)]">
-              Apply Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <Link
+              to="/admissions"
+              className="group inline-flex items-center gap-3 rounded-sm bg-gold-500 px-7 py-4 text-sm font-semibold text-navy-950 transition-all hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(224,184,74,0.55)]"
+            >
+              Apply Now{" "}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link to="/contact" className="inline-flex items-center gap-3 rounded-sm border border-white/30 px-7 py-4 text-sm font-semibold text-white hover:bg-white/5">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-3 rounded-sm border border-white/30 px-7 py-4 text-sm font-semibold text-white hover:bg-white/5"
+            >
               Schedule a Visit
             </Link>
           </div>
