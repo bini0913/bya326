@@ -12,16 +12,19 @@ const isVercel = process.env.VERCEL === "1";
 // Vercel deploys TanStack Start through Nitro; the Lovable wrapper otherwise only enables
 // Nitro in Lovable sandboxes, so force the Vercel preset when a Vercel build is detected.
 export default defineConfig({
-  nitro: isVercel
-    ? {
-        preset: "vercel",
-        output: {
-          dir: ".vercel/output",
-          publicDir: ".vercel/output/static",
-          serverDir: ".vercel/output/functions/__server.func",
-        },
-      }
-    : true,
+  // `nitro` is accepted at runtime by the Lovable wrapper but not yet in its public types.
+  ...({
+    nitro: isVercel
+      ? {
+          preset: "vercel",
+          output: {
+            dir: ".vercel/output",
+            publicDir: ".vercel/output/static",
+            serverDir: ".vercel/output/functions/__server.func",
+          },
+        }
+      : true,
+  } as Record<string, unknown>),
   tanstackStart: {
     server: { entry: "server" },
   },
