@@ -9,7 +9,9 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build:vercel": "VERCEL=1 vite build",
+    "vercel:check": "bun run build:vercel && test -f .vercel/output/config.json && test -f .vercel/output/functions/__server.func/.vc-config.json"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
@@ -88,5 +90,9 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^7.3.1"
+  },
+  "packageManager": "bun@1.2.14",
+  "engines": {
+    "node": "24.x"
   }
 }
