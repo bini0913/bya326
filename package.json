@@ -10,8 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "build:vercel": "npm run build",
-    "vercel:check": "npm run build && test -f dist/index.html && test -d dist/assets && node -e \"const fs=require('fs'); const cfg=JSON.parse(fs.readFileSync('vercel.json','utf8')); if (!cfg.rewrites?.some(r => r.source === '/(.*)' && r.destination === '/index.html')) process.exit(1);\""
+    "build:vercel": "vite build",
+    "vercel:check": "VERCEL=1 vite build && test -f .vercel/output/config.json && test -d .vercel/output/functions/__server.func && test -d .vercel/output/static"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
@@ -58,6 +58,7 @@
     "i18next-browser-languagedetector": "^8.2.1",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.575.0",
+    "nitro": "^3.0.260522-beta",
     "react": "^19.2.0",
     "react-day-picker": "^9.14.0",
     "react-dom": "^19.2.0",
@@ -93,6 +94,6 @@
   },
   "packageManager": "bun@1.2.14",
   "engines": {
-    "node": "24.x"
+    "node": "22.x"
   }
 }
