@@ -94,6 +94,6 @@
   },
   "packageManager": "bun@1.2.14",
   "engines": {
-    "node": "24.x"
+    "node": "22.x"
   }
 }
