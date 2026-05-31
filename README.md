@@ -13,10 +13,10 @@ Use these project settings in Vercel:
 | Setting | Value |
 | --- | --- |
 | Framework Preset | Other |
-| Install Command | `bun install --frozen-lockfile` |
+| Install Command | `bun install` |
 | Build Command | `bun run build:vercel` |
 | Output Directory | Leave empty |
-| Node.js Version | `24.x` |
+| Node.js Version | `22.x` |
 
 The build writes Vercel's required output to `.vercel/output`, including static assets, routing config, and the server function.
 
@@ -44,4 +44,4 @@ Run the same Vercel-targeted production build locally:
 bun run vercel:check
 ```
 
-That command forces the Vercel Nitro preset and verifies that the generated Build Output API files exist.
+That command uses the Vercel Nitro preset and verifies that the generated Build Output API files exist.
