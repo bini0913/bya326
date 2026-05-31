@@ -10,8 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "build:vercel": "vite build",
-    "vercel:check": "VERCEL=1 vite build && test -f .vercel/output/config.json && test -d .vercel/output/functions/__server.func && test -d .vercel/output/static"
+    "build:vercel": "VERCEL=1 vite build",
+    "vercel:check": "bun run build:vercel && test -f .vercel/output/config.json && test -d .vercel/output/functions/__server.func && test -d .vercel/output/static"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
