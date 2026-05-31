@@ -6,6 +6,8 @@ import { nitro } from "nitro/vite";
 import { defineConfig as defineViteConfig, loadEnv, mergeConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
+const nitroSsrRenderer = "node_modules/nitro/dist/runtime/internal/vite/ssr-renderer.mjs";
+
 const tanstackStartOptions = {
   server: { entry: "server" },
   importProtection: {
@@ -52,7 +54,10 @@ export default isVercelBuild
             tailwindcss(),
             tsConfigPaths({ projects: ["./tsconfig.json"] }),
             tanstackStart(tanstackStartOptions),
-            nitro({ preset: "vercel" }),
+            nitro({
+              preset: "vercel",
+              renderer: { handler: nitroSsrRenderer },
+            }),
             viteReact(),
           ],
         },
